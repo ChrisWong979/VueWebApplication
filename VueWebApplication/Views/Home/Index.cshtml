@@ -35,7 +35,7 @@
         mounted() {
             axios({
                 method: 'post',
-                headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                headers: { "RequestVerificationToken": document.querySelector('input[name="__RequestVerificationToken"]').value },
                     url: '@Url.Content("~/api/Student")',
                 })
                 .then(response => (this.students = response.data ))
