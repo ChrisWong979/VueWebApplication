@@ -6,9 +6,9 @@
     <div class="col-md-4">
         <h2>Getting started</h2>
         <div id="app">
-            <h1>网站列表</h1>
-            <div v-for="site in info">
-                {{ site.name }}
+            <h1></h1>
+            <div v-for="student in students">
+                {{ student }}
             </div>
         </div>
     </div>
@@ -27,13 +27,13 @@
         el: '#app',
         data() {
             return {
-                info: null
+                students: []
             }
         },
         mounted() {
             axios
-                .post('https://www.runoob.com/try/ajax/json_demo.json')
-                .then(response => (this.info = response))
+                .post('@Url.Content("~/api/Student")')
+                .then(response => (this.students = response.data ))
                 .catch(function (error) { // 请求失败处理
                     console.log(error);
                 });

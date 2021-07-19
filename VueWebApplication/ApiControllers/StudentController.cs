@@ -10,9 +10,9 @@ namespace VueWebApplication.ApiControllers
     public class StudentController : ApiController
     {
         // GET api/<controller>
-        public HttpResponseMessage Get()
+        public IEnumerable<string> Get()
         {
-            return Request.CreateResponse<string[]>(HttpStatusCode.Created, new string[] { "value1", "value2" });
+            return new string[] { "student1", "student2" };
         }
 
         // GET api/<controller>/5
@@ -22,9 +22,9 @@ namespace VueWebApplication.ApiControllers
         }
 
         // POST api/<controller>
-        public HttpResponseMessage Post([FromBody]string value)
+        public IEnumerable<string> Post([FromBody]string value)
         {
-            return Request.CreateResponse<string[]>(HttpStatusCode.Created, new string[] { "value1", "value2", "value3" });
+            return new string[] { "student1", "student2", "student3" };
         }
 
         // PUT api/<controller>/5
